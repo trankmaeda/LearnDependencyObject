@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,14 @@ namespace LearnDependencyObject
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var range = new Range();
+            AttachedPropertySample.SetSampleValue(range, 100);
+            var sampleValue = AttachedPropertySample.GetSampleValue(range);
+            Debug.WriteLine($"value: {sampleValue}");
         }
     }
 }
